@@ -3,7 +3,8 @@ extends PlayerState
 
 func enter() -> void:
 	print("Jump state")
-	player.hitbox.damage = player.stats.jumpDamage
+	player.hitbox.damage = player.stats.jumpData["damage"]
+	player.hitbox.knockback = player.stats.jumpData["knockback"]
 	player.hitbox.set_direction(player.facing)
 	player.hitbox.set_active(true)
 	player.sprite.play("Jump")

@@ -3,7 +3,8 @@ extends PlayerState
 
 func enter() -> void:
 	player.sprite.play("Attack")
-	player.hitbox.damage = player.stats.attackDamage
+	player.hitbox.damage = player.stats.basicAttackData["damage"]
+	player.hitbox.knockback = player.stats.basicAttackData["knockback"]
 	player.hitbox.set_direction(player.facing)
 	player.hitbox.set_active(true)
 	player.sprite.animation_finished.connect(_on_anim_finished, CONNECT_ONE_SHOT)

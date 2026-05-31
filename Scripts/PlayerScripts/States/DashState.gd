@@ -3,7 +3,8 @@ extends PlayerState
 
 func enter() -> void:
 	print("Dash state")
-	player.hitbox.damage = player.stats.dashDamage
+	player.hitbox.damage = player.stats.dashData["damage"]
+	player.hitbox.knockback = player.stats.dashData["knockback"]
 	player.hitbox.set_direction(player.facing)
 	player.hitbox.set_active(true)
 	player.sprite.play("Dash")

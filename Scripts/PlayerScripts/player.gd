@@ -15,6 +15,7 @@ var health: float
 @export var screenSide := Side.LEFT
 @export var stats: CharacterStats
 # Movement Variables
+var hitstopTimer: float = 0.0
 var stateMachine: StateMachine
 var facing: float = 1.0
 # Swipe Variables
@@ -37,6 +38,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if hitstopTimer > 0.0:
+		hitstopTimer -= delta
+		sprite.pause()
+		return
+	
+	sprite.play()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
@@ -56,9 +63,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	stateMachine.input(event)
 
-func take_damage(dmg: float) -> void:
+func take_damage(dmg: float, kb: float, dir: float) -> void:
 	health = max(0.0, health - dmg)
 	health_changed.emit(health, stats.maxHealth)
 	print(name, ", Damage took: ", dmg, ", Health: ", health)
 	if health == 0.0:
 		died.emit()
+	stateMachine.change_state(HitState.new(self, stateMachine, kb, dir))
+
+func apply_hitstop(duration: float) -> void:
+	hitstopTimer = duration

@@ -2,6 +2,8 @@ class_name Hitbox
 extends Area2D
 
 var damage: int = 10
+var knockback: float = 100.0
+var facing: float = 1.0
 
 func _init() -> void:
 	collision_layer = 2
@@ -15,4 +17,5 @@ func set_active(active: bool) -> void:
 	$CollisionShape2D.set_deferred("disabled", not active)
 
 func set_direction(dir: float):
+	facing = dir
 	position.x = abs(position.x) * dir
