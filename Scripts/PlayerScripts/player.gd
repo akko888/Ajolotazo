@@ -5,27 +5,33 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -800.0
 const DASH_VELOCITY = 800.0
 const FRICTION = 625.0
-
 enum Side { LEFT, RIGHT }
-
 # Player Variables
 @onready var sprite = $AnimatedSprite2D
-
+@onready var hurtbox = $Hurtbox
+@onready var hitbox = $Hitbox
+var health: float
 # Export Variables
 @export var screenSide := Side.LEFT
-
+@export var stats: CharacterStats
 # Movement Variables
 var stateMachine: StateMachine
 var facing: float = 1.0
-
 # Swipe Variables
 var minimunDrag = 60.0
 var startSwipe = Vector2.ZERO
 
+#Signals
+signal health_changed(newHealth: float, maxHealth: float)
+signal died()
+
 func _ready() -> void:
+	health = stats.maxHealth
+	
 	if screenSide == Side.RIGHT:
 		sprite.flip_h = true
 		facing = -1.0
+		hitbox.set_direction(facing)
 	stateMachine = StateMachine.new()
 	stateMachine.change_state(IdleState.new(self, stateMachine))
 
@@ -49,3 +55,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if screenSide == Side.RIGHT and touchLeft: return
 	
 	stateMachine.input(event)
+
+func take_damage(dmg: float) -> void:
+	health = max(0.0, health - dmg)
+	health_changed.emit(health, stats.maxHealth)
+	print(name, ", Damage took: ", dmg, ", Health: ", health)
+	if health == 0.0:
+		died.emit()

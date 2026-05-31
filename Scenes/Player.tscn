@@ -4,9 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://c5rjayi1b0yww" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_run_1.png" id="2_52ee3"]
 [ext_resource type="Texture2D" uid="uid://c0ttqd1yy4p77" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_attack_1.png" id="2_bhhdu"]
 [ext_resource type="Texture2D" uid="uid://b5v5usa0w5rdo" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_idle_1.png" id="2_kyqiw"]
+[ext_resource type="Script" uid="uid://bx5l6iguxlh6t" path="res://Scripts/PlayerScripts/CharacterStats.gd" id="2_yoq75"]
 [ext_resource type="Texture2D" uid="uid://cpjwcot0q863k" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_jump_1.png" id="5_megsn"]
 [ext_resource type="Texture2D" uid="uid://cutvg6k7jnqwt" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_jump_2.png" id="6_yoq75"]
 [ext_resource type="Texture2D" uid="uid://dbjk76j1wcxg2" path="res://PlaceHolders/Cat_player/Cat_sheets/Cat_landding_1.png" id="7_ksbbd"]
+[ext_resource type="Script" uid="uid://dvf51hxurcu2w" path="res://Scripts/PlayerScripts/Combat/Hitbox.gd" id="8_megsn"]
+[ext_resource type="Script" uid="uid://dsdvl7e1684tk" path="res://Scripts/PlayerScripts/Combat/Hurtbox.gd" id="9_yoq75"]
+
+[sub_resource type="Resource" id="Resource_ksbbd"]
+script = ExtResource("2_yoq75")
+metadata/_custom_type_script = "uid://bx5l6iguxlh6t"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
 atlas = ExtResource("2_bhhdu")
@@ -151,15 +158,38 @@ animations = [{
 radius = 24.0
 height = 128.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksbbd"]
+size = Vector2(40, 70)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glx4g"]
+radius = 24.0
+height = 100.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2135870302]
 script = ExtResource("1_kyqiw")
+stats = SubResource("Resource_ksbbd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752291135]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_nn08x")
-animation = &"Attack"
-frame = 3
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2128372684]
 shape = SubResource("CapsuleShape2D_gntrk")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=871491135]
+position = Vector2(40, 20)
+script = ExtResource("8_megsn")
+metadata/_custom_type_script = "uid://dvf51hxurcu2w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1021524437]
+shape = SubResource("RectangleShape2D_ksbbd")
+disabled = true
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1965981577]
+script = ExtResource("9_yoq75")
+metadata/_custom_type_script = "uid://dsdvl7e1684tk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=747096849]
+position = Vector2(0, 14)
+shape = SubResource("CapsuleShape2D_glx4g")

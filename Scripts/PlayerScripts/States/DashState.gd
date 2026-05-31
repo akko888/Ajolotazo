@@ -3,10 +3,13 @@ extends PlayerState
 
 func enter() -> void:
 	print("Dash state")
+	player.hitbox.damage = player.stats.dashDamage
+	player.hitbox.set_direction(player.facing)
+	player.hitbox.set_active(true)
 	player.sprite.play("Dash")
 
 func exit() -> void:
-	pass
+	player.hitbox.set_active(false)
 	
 func physics_process(_delta: float) -> void:
 	if abs(player.velocity.x) < 10.0 and player.is_on_floor():

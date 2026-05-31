@@ -30,10 +30,10 @@ shape = SubResource("RectangleShape2D_gf2k1")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1866117849]
 position = Vector2(640, 360)
 
-[node name="CharacterBody2D" parent="." unique_id=2135870302 instance=ExtResource("1_gjdyk")]
+[node name="Player1" parent="." unique_id=2135870302 instance=ExtResource("1_gjdyk")]
 position = Vector2(216, 593)
 
-[node name="CharacterBody2D2" parent="." unique_id=123105804 instance=ExtResource("1_gjdyk")]
+[node name="Player2" parent="." unique_id=123105804 instance=ExtResource("1_gjdyk")]
 position = Vector2(1043, 586)
 screenSide = 1
 

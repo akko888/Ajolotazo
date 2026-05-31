@@ -3,10 +3,13 @@ extends PlayerState
 
 func enter() -> void:
 	print("Jump state")
+	player.hitbox.damage = player.stats.jumpDamage
+	player.hitbox.set_direction(player.facing)
+	player.hitbox.set_active(true)
 	player.sprite.play("Jump")
 	
 func exit() -> void:
-	pass
+	player.hitbox.set_active(false)
 	
 func physics_process(_delta: float) -> void:
 	if player.is_on_floor() and player.velocity.y >= 0:
