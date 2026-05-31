@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c47d441fvo056"]
 
 [ext_resource type="PackedScene" uid="uid://bi5oo3ewqykqv" path="res://Scenes/Player.tscn" id="1_gjdyk"]
+[ext_resource type="Script" uid="uid://c7hb1ma52h16d" path="res://Scripts/Scene/scene.gd" id="1_lrus4"]
+[ext_resource type="PackedScene" uid="uid://da7whyxmmhutt" path="res://Scenes/GUI/ProgressBars.tscn" id="2_p6gg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gf2k1"]
 size = Vector2(1280, 60)
@@ -15,6 +17,7 @@ size = Vector2(1280, 20)
 size = Vector2(20, 720)
 
 [node name="Scene" type="Node2D" unique_id=2142566041]
+script = ExtResource("1_lrus4")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1910788280]
 position = Vector2(0, 660)
@@ -57,3 +60,18 @@ position = Vector2(1280, 360)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1261021541]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_p6gg1")
+
+[node name="GUI" type="Control" parent="." unique_id=1929422593]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Progress_Bars" parent="GUI" unique_id=517572249 instance=ExtResource("2_p6gg1")]
+layout_mode = 1
+grow_horizontal = 1
