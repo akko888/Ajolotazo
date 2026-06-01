@@ -15,7 +15,7 @@ func handle_input(event: InputEvent):
 	var swipe = event.position - player.startSwipe
 	
 	if swipe.length() < player.minimunDrag:
-		stateMachine.change_state(AttackState.new(player, stateMachine))
+		stateMachine.change_state(AttackState.new(player, stateMachine, 0))
 		
 	elif abs(swipe.x) > abs(swipe.y):
 		player.facing = sign(swipe.x)
