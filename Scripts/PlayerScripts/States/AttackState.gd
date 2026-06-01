@@ -38,6 +38,9 @@ func handle_input(_event: InputEvent) -> void:
 			_try_advance()
 		else:
 			isInputBuffered = true
+	elif abs(swipe.x) <= abs(swipe.y) and swipe.y < 0:
+		player.velocity.y = player.JUMP_VELOCITY
+		stateMachine.change_state(JumpState.new(player, stateMachine))
 
 func exit() -> void:
 	player.hitbox.set_active(false)

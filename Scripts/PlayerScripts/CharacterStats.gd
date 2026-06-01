@@ -5,7 +5,7 @@ extends Resource
 
 @export var dashData = {
 	"damage": 20.0,
-	"knockback": 100.0,
+	"knockback": 40.0,
 }
 @export var jumpData = {
 	"damage": 15.0,
@@ -13,7 +13,7 @@ extends Resource
 }
 
 @export var comboData: Array = [
-	{ "anim": "Attack1", "damage": 10.0, "knockback": 120.0 },
-	{ "anim": "Attack2", "damage": 10.0, "knockback": 150.0 },
+	{ "anim": "Attack1", "damage": 10.0, "knockback": 40.0 },
+	{ "anim": "Attack2", "damage": 10.0, "knockback": 60.0 },
 	{ "anim": "Attack3", "damage": 10.0, "knockback": 850.0 },
 ]
