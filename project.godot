@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="MaizYTacos"
+config/description="Maíz y Tacos is a mobile fighting game based on gestures as movements. It is set in the mexican culture and references!"
 run/main_scene="uid://c47d441fvo056"
 config/features=PackedStringArray("4.6", "Mobile")
+config/icon="uid://bhnaejibko4nv"
 
 [display]
 
