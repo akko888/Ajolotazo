@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5d5osp6lo1nf" path="res://Assets/Buttons/ChiliButton_0001.png" id="2_8smt0"]
 [ext_resource type="Texture2D" uid="uid://cl44nl0o2acam" path="res://Assets/Images/Title.png" id="2_ek14q"]
 [ext_resource type="Script" uid="uid://di25numyn5xtl" path="res://Scripts/Scene/menus/TtileScreen.gd" id="2_h1bg7"]
+[ext_resource type="Texture2D" uid="uid://blew8yyvs8rxa" path="res://Assets/Scenes/MainMenu.png" id="3_3kyn4"]
 [ext_resource type="Texture2D" uid="uid://1f1kms0sgftv" path="res://Assets/Buttons/ChiliButton_0003.png" id="3_t0msg"]
 [ext_resource type="Texture2D" uid="uid://cackrwrb8usen" path="res://Assets/Buttons/ChiliButton_0002.png" id="4_cr7co"]
 [ext_resource type="LabelSettings" uid="uid://ccmam6ggtveo0" path="res://Config/MenuLabel.tres" id="5_xw5h8"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cr2u6oh4cx856" path="res://Assets/Buttons/knife_0002.png" id="11_yuk0h"]
 [ext_resource type="Texture2D" uid="uid://baxodsna00yu6" path="res://Assets/Buttons/ModeSel/VsButton_0002.png" id="12_2gktr"]
 [ext_resource type="Texture2D" uid="uid://cipq1y8pqpjj2" path="res://Assets/Buttons/ModeSel/arcadeButton_0001.png" id="13_ocrow"]
+[ext_resource type="Texture2D" uid="uid://csypx1jd2ofch" path="res://Assets/Scenes/Menu1.png" id="13_subhu"]
 [ext_resource type="Texture2D" uid="uid://cdtb0ou62v66i" path="res://Assets/Buttons/ModeSel/arcadeButton_0003.png" id="14_h1bg7"]
 [ext_resource type="Texture2D" uid="uid://bqw7u0sknkxmv" path="res://Assets/Buttons/ModeSel/arcadeButton_0002.png" id="15_31om1"]
 [ext_resource type="Texture2D" uid="uid://b4foqriicb31n" path="res://Assets/Buttons/ModeSel/tutorial_0001.png" id="16_u8b8k"]
@@ -29,6 +31,7 @@
 [ext_resource type="Script" uid="uid://bvf46agvkwajv" path="res://Scripts/Scene/menus/CharSelect.gd" id="27_5n7og"]
 [ext_resource type="Texture2D" uid="uid://bbkcgr3rrst1v" path="res://Assets/Images/Select.png" id="27_u8b8k"]
 [ext_resource type="Texture2D" uid="uid://cb0pm41h288rg" path="res://Assets/Images/VSPortraid.png" id="29_waiuv"]
+[ext_resource type="Texture2D" uid="uid://joc43ehafvp3" path="res://Assets/Scenes/Menu2.png" id="32_iypqj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iypqj"]
 font_size = 37
@@ -57,7 +60,6 @@ grow_vertical = 2
 script = ExtResource("1_jfwsv")
 
 [node name="TitleScreen" type="Control" parent="." unique_id=2063810978]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +67,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_h1bg7")
+
+[node name="Background" type="TextureRect" parent="TitleScreen" unique_id=737851292]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_3kyn4")
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="TitleScreen" unique_id=1324972985]
 layout_mode = 1
@@ -171,6 +179,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_31om1")
+
+[node name="Background" type="TextureRect" parent="ModeSelect" unique_id=690999076]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("13_subhu")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ModeSelect" unique_id=1529199280]
 layout_mode = 1
@@ -307,6 +321,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CharSelect" type="Control" parent="." unique_id=1034990148]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -503,6 +518,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="StageSelect" unique_id=1221765069]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("32_iypqj")
 
 [node name="Gallery" type="Control" parent="." unique_id=923881135]
 visible = false
