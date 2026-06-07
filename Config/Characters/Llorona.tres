@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://qt67l5a3nxei"]
 
 [ext_resource type="Script" uid="uid://bx5l6iguxlh6t" path="res://Scripts/PlayerScripts/CharacterStats.gd" id="1_16qs5"]
-[ext_resource type="SpriteFrames" uid="uid://birheso5oqlsw" path="res://Config/SpriteFrames/LlorornaSpriteFrame.tres" id="2_whutm"]
+[ext_resource type="SpriteFrames" uid="uid://birheso5oqlsw" path="res://Config/SpriteFrames/LloronaSpriteFrame.tres" id="2_whutm"]
 
 [resource]
 script = ExtResource("1_16qs5")

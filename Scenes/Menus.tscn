@@ -34,6 +34,15 @@
 font_size = 37
 font_color = Color(0.9607843, 0.92941177, 0.7294118, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3kyn4"]
+font_size = 26
+font_color = Color(0.89411765, 0.5803922, 0.22745098, 1)
+outline_size = 2
+outline_color = Color(0.12156863, 0.05490196, 0.10980392, 1)
+shadow_size = 4
+shadow_color = Color(0.12156863, 0.05490196, 0.10980392, 1)
+shadow_offset = Vector2(3, 3)
+
 [sub_resource type="LabelSettings" id="LabelSettings_waiuv"]
 font_size = 48
 font_color = Color(0.9607843, 0.92941177, 0.7294118, 1)
@@ -48,6 +57,7 @@ grow_vertical = 2
 script = ExtResource("1_jfwsv")
 
 [node name="TitleScreen" type="Control" parent="." unique_id=2063810978]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -297,7 +307,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CharSelect" type="Control" parent="." unique_id=1034990148]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,11 +315,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_5n7og")
 
+[node name="Player1Back" type="ColorRect" parent="CharSelect" unique_id=1958171618]
+layout_mode = 0
+offset_right = 416.0
+offset_bottom = 720.0
+color = Color(0.8235294, 0.39215687, 0.44313726, 1)
+
+[node name="Player2Back" type="ColorRect" parent="CharSelect" unique_id=1683313623]
+layout_mode = 0
+offset_left = 864.0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.7529412, 0.78039217, 0.25490198, 1)
+
 [node name="Player1Select" type="TextureRect" parent="CharSelect" unique_id=1984526529]
 layout_mode = 0
 offset_right = 416.0
 offset_bottom = 256.0
 texture = ExtResource("27_u8b8k")
+
+[node name="StatsPanel1" type="Panel" parent="CharSelect/Player1Select" unique_id=1653709028]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 16.0
+offset_right = 403.0
+offset_bottom = 240.0
+
+[node name="Label" type="Label" parent="CharSelect/Player1Select/StatsPanel1" unique_id=1206242250]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_3kyn4")
 
 [node name="Player2Select" type="TextureRect" parent="CharSelect" unique_id=92297324]
 layout_mode = 1
@@ -322,16 +367,44 @@ offset_bottom = 256.0
 grow_horizontal = 0
 texture = ExtResource("27_u8b8k")
 
+[node name="StatsPanel2" type="Panel" parent="CharSelect/Player2Select" unique_id=1553830508]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -403.0
+offset_top = 16.0
+offset_right = -13.0
+offset_bottom = 240.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CharSelect/Player2Select/StatsPanel2" unique_id=938915896]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_3kyn4")
+
 [node name="Player1Chars" type="GridContainer" parent="CharSelect" unique_id=710238971]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -464.0
+offset_top = -415.0
 offset_right = 416.0
 grow_vertical = 0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
 
 [node name="Playe2Chars" type="GridContainer" parent="CharSelect" unique_id=295857116]
 layout_mode = 1
@@ -341,11 +414,12 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -416.0
-offset_top = -464.0
+offset_top = -415.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
 
 [node name="TextureRect" type="TextureRect" parent="CharSelect" unique_id=1775829327]
 layout_mode = 1
@@ -361,6 +435,32 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("29_waiuv")
+
+[node name="BackButton" type="TextureButton" parent="CharSelect/TextureRect" unique_id=308289022]
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 128.0
+texture_normal = ExtResource("9_jcodu")
+texture_pressed = ExtResource("10_xw5h8")
+texture_hover = ExtResource("11_yuk0h")
+
+[node name="Label" type="Label" parent="CharSelect/TextureRect/BackButton" unique_id=1348635253]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -9.0
+offset_right = 52.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Atrás"
+label_settings = ExtResource("5_xw5h8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ConfirmButton" type="TextureButton" parent="CharSelect" unique_id=107130096]
 layout_mode = 1
@@ -416,3 +516,4 @@ grow_vertical = 2
 [connection signal="pressed" from="TitleScreen/ButtonsContainer/StartButton" to="TitleScreen" method="_on_start_button_pressed"]
 [connection signal="pressed" from="ModeSelect/HBoxContainer/VsButton" to="ModeSelect" method="_on_vs_button_pressed"]
 [connection signal="pressed" from="ModeSelect/BackButton" to="ModeSelect" method="_on_back_button_pressed"]
+[connection signal="pressed" from="CharSelect/TextureRect/BackButton" to="CharSelect" method="_on_back_button_pressed"]

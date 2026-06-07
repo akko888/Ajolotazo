@@ -13,7 +13,7 @@ func _ready() -> void:
 	monitorable = false
 
 func set_active(active: bool) -> void:
-	monitorable = active
+	set_deferred("monitorable", true)
 	$CollisionShape2D.set_deferred("disabled", not active)
 
 func set_direction(dir: float):

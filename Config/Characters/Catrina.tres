@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://xjsmupesm2cv"]
+
+[ext_resource type="Script" uid="uid://bx5l6iguxlh6t" path="res://Scripts/PlayerScripts/CharacterStats.gd" id="1_1wiy0"]
+[ext_resource type="SpriteFrames" uid="uid://cf3d36gbfnge0" path="res://Config/SpriteFrames/CatrinaSpriteFrames.tres" id="2_1wiy0"]
+
+[resource]
+script = ExtResource("1_1wiy0")
+spriteFrames = ExtResource("2_1wiy0")
+maxHealth = 400.0
+DASH_VELOCITY = 600.0
+JUMP_VELOCITY = -600.0
+dashData = {
+"damage": 26.0,
+"knockback": 40.0
+}
+jumpData = {
+"damage": 31.0,
+"knockback": 800.0
+}
+comboData = [{
+"anim": "Attack1",
+"damage": 15.0,
+"knockback": 40.0
+}, {
+"anim": "Attack2",
+"damage": 15.0,
+"knockback": 60.0
+}, {
+"anim": "Attack3",
+"damage": 20.0,
+"knockback": 850.0
+}]
+metadata/_custom_type_script = "uid://bx5l6iguxlh6t"

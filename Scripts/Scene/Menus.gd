@@ -13,6 +13,7 @@ var currentScene: String = "title"
 func _ready() -> void:
 	$TitleScreen.startPressed.connect(_on_navigation_button_pressed)
 	$ModeSelect.onModePressed.connect(_on_navigation_button_pressed)
+	$CharSelect.onCharPressed.connect(_on_navigation_button_pressed)
 	$CharSelect.characterConfirmed.connect(_on_character_confirmed)
 
 func go_to(screen: String) -> void:

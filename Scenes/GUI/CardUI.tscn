@@ -14,10 +14,11 @@ shadow_size = 4
 shadow_color = Color(0.34509805, 0.27058825, 0.3882353, 1)
 
 [node name="TextureButton" type="TextureButton" unique_id=1236348349]
+custom_minimum_size = Vector2(128, 128)
 offset_right = 128.0
 offset_bottom = 128.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 texture_normal = ExtResource("1_7ymo8")
 texture_pressed = ExtResource("2_urb20")
 texture_hover = ExtResource("3_7c5ym")
